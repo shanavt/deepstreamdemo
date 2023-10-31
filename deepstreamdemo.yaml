@@ -4,7 +4,7 @@ metadata:
   labels:
     k8s-app: deepstream-demo
   name: deepstream-demo
-  namespace: test
+  namespace: deepstream
 spec:
   replicas: 1
   revisionHistoryLimit: 10
