@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: deepstream-demo
+  name: deepstream-demo
+  namespace: test
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: deepstream-demo
+  template:
+    metadata:
+      name: deepstream-demo
+      labels:
+        k8s-app: deepstream-demo
+    spec:
+      containers:
+        - name: deepstream-demo
+          image: "hermanleong/deepstream-demo:v1.1"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8554
+              protocol: TCP
+          env:
+            - name: RTSP_IN
+              value: $RTSP_IN
+          resources:
+            limits:
+              nvidia.com/gpu: 1
