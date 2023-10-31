@@ -26,7 +26,7 @@ spec:
               protocol: TCP
           env:
             - name: RTSP_IN
-              value: $RTSP_IN
+              value: "rtsp://example-rtsp-host:554/" 
           resources:
             limits:
               nvidia.com/gpu: 1
