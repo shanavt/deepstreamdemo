@@ -1,0 +1,3 @@
+operator:
+  repository: nvidia/gpu-operator
+  tag: latest
