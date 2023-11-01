@@ -1,0 +1,14 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: gpu-operator
+  namespace: default
+spec:
+  releaseName: gpu-operator
+  chart:
+    repository: https://helm.ngc.nvidia.com/nvidia
+    name: gpu-operator
+    version: "latest"
+  values:
+    operator:
+      defaultRuntime: "nvidia"
